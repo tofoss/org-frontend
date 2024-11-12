@@ -1,1 +1,1 @@
-export { AjaxError } from "./AjaxError"
+export { useFetch } from "./use-fetch"
