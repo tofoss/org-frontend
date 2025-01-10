@@ -1,10 +1,10 @@
 import React, { useState } from "react"
 import { Box, Input, Heading, VStack, Text } from "@chakra-ui/react"
 import { Field } from "components/ui/field"
-import { login } from "api/users"
 import { apiRequest } from "utils/http"
 import { Button } from "components/ui/button"
 import { useNavigate } from "shared/Router"
+import { userClient } from "api/users"
 
 const LoginPage = () => {
   const [username, setUsername] = useState("")
@@ -21,7 +21,7 @@ const LoginPage = () => {
       return
     }
 
-    await call(() => login(username, password))
+    await call(() => userClient.login(username, password))
 
     if (!error && !loading) {
       setErrorMessage(undefined)
