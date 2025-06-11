@@ -62,9 +62,11 @@ const BrowsePage = () => {
                           fontSize="xs"
                           px="2"
                           py="1"
-                          bg="blue.100"
-                          color="blue.800"
+                          borderWidth="1px"
+                          borderColor="blue.300"
+                          color="blue.700"
                           borderRadius="md"
+                          bg="transparent"
                         >
                           {tag.name}
                         </Text>

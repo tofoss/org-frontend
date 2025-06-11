@@ -75,7 +75,7 @@ export function TagSelector({ selectedTags, onTagsChange }: TagSelectorProps) {
               <Badge
                 key={tag.id}
                 colorPalette="blue"
-                variant="solid"
+                variant="outline"
                 display="flex"
                 alignItems="center"
                 gap={1}

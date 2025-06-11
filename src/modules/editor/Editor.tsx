@@ -140,28 +140,6 @@ export function Editor(props: EditorProps) {
               />
             </Box>
           )}
-
-          {/* Current Tags Display */}
-          {selectedTags.length > 0 && !showTagEditor && (
-            <HStack gap={2} paddingY="2">
-              <Text fontSize="sm" fontWeight="medium">
-                Tags:
-              </Text>
-              {selectedTags.map((tag) => (
-                <Text
-                  key={tag.id}
-                  fontSize="xs"
-                  px="2"
-                  py="1"
-                  bg="blue.100"
-                  color="blue.800"
-                  borderRadius="md"
-                >
-                  {tag.name}
-                </Text>
-              ))}
-            </HStack>
-          )}
           {note && (
             <Collapsible.Content width="100%">
               <Box paddingLeft="4">
