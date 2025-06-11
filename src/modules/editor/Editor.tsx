@@ -104,7 +104,7 @@ export function Editor(props: EditorProps) {
             <Button
               variant="ghost"
               onClick={() => setShowTagEditor(!showTagEditor)}
-              colorPalette={showTagEditor ? "blue" : undefined}
+              colorPalette={showTagEditor ? "teal" : undefined}
             >
               <LuTag /> Tags
             </Button>

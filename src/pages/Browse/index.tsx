@@ -63,8 +63,8 @@ const BrowsePage = () => {
                           px="2"
                           py="1"
                           borderWidth="1px"
-                          borderColor="blue.300"
-                          color="blue.700"
+                          borderColor="teal.300"
+                          color="teal.700"
                           borderRadius="md"
                           bg="transparent"
                         >

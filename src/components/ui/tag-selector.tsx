@@ -41,8 +41,25 @@ export function TagSelector({ selectedTags, onTagsChange }: TagSelectorProps) {
   const handleCreateAndAddTag = async () => {
     if (!tagInput.trim()) return
 
+    const inputName = tagInput.trim()
+
+    // Check if tag already exists (case-insensitive)
+    const existingTag = allTags?.find(
+      (tag) => tag.name.toLowerCase() === inputName.toLowerCase()
+    )
+
+    if (existingTag) {
+      // Add existing tag if not already selected
+      if (!selectedTags.some((selected) => selected.id === existingTag.id)) {
+        onTagsChange([...selectedTags, existingTag])
+      }
+      setTagInput("")
+      return
+    }
+
+    // Create new tag if it doesn't exist
     try {
-      const newTag = await createTag(() => tagClient.upsert(tagInput.trim()))
+      const newTag = await createTag(() => tagClient.upsert(inputName))
       if (newTag) {
         onTagsChange([...selectedTags, newTag])
         setTagInput("")
@@ -74,7 +91,7 @@ export function TagSelector({ selectedTags, onTagsChange }: TagSelectorProps) {
             {selectedTags.map((tag) => (
               <Badge
                 key={tag.id}
-                colorPalette="blue"
+                colorPalette="teal"
                 variant="outline"
                 display="flex"
                 alignItems="center"
@@ -107,7 +124,7 @@ export function TagSelector({ selectedTags, onTagsChange }: TagSelectorProps) {
           <Button
             onClick={handleCreateAndAddTag}
             disabled={!tagInput.trim() || creating}
-            colorPalette="blue"
+            colorPalette="teal"
           >
             <LuPlus />
           </Button>
