@@ -87,4 +87,14 @@ export const notebooks = {
       credentials: "include",
     })
   },
+
+  getNotebooksForNote: async (noteId: string): Promise<Notebook[]> => {
+    const response = await client
+      .get(`notes/${noteId}/notebooks`, {
+        headers: commonHeaders(),
+        credentials: "include",
+      })
+      .json<Notebook[]>()
+    return response.map(fromJson)
+  },
 }
